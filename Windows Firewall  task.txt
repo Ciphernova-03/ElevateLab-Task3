@@ -1,0 +1,34 @@
+Windows Firewall – Practical Task Report
+
+Introduction
+
+In this task, I worked with the Windows Firewall to understand how to view existing rules, create a new rule to block a specific port, and test whether the firewall is working correctly. The focus was to block port 23 (Telnet) and verify the result.
+
+What I Did
+1.I opened Windows Defender Firewall and went to Advanced Settings, where all the inbound and outbound rules are managed.
+2. Checked Current Firewall Rules
+I clicked on Inbound Rules to see what rules were already applied on my system. This gave me an idea of how traffic is normally allowed or blocked.
+Creating and Testing the Firewall Rule
+3. Blocked Port 23 (Telnet)
+I created a new inbound rule to block port 23, which is used by Telnet.
+
+Steps followed:
+Chose Port → TCP
+Entered 23
+Selected Block the connection
+Applied it to Domain, Private, and Public
+Named the rule Block_port_23
+
+4. Tested the Block Rule
+To check if the rule was actually working, I used this command after enabling Telnet:
+
+telnet 127.0.0.1 23
+The result showed:
+"Could not open connection to the host… Connect failed"
+This confirmed that the firewall successfully blocked port 23.
+
+5. Removed the Test Rule
+Once the testing was completed, I deleted the rule Block_port_23 to restore the firewall to its normal state.
+
+Conclusion
+This task helped me understand how Windows Firewall filters network traffic. By creating a rule to block port 23 and testing it, I learned how firewall rules affect the connection attempts. The failed Telnet connection confirmed that the firewall rule was working exactly as expected.

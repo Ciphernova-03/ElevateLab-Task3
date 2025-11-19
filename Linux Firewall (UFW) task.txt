@@ -1,0 +1,55 @@
+Linux Firewall – Detailed UFW Report
+
+1. Introduction
+In this task, I performed a hands-on practical on the Linux firewall using UFW (Uncomplicated Firewall). The objective was to enable the firewall, create a rule to block port 23 (Telnet), test the rule, and remove it after verification.This helped me understand how Linux filters traffic using firewall rules.
+
+2. Tools & Environment
+- Linux (Ubuntu/Kali/Debian)
+- UFW (Uncomplicated Firewall)
+- Telnet or Netcat for testing
+
+3. Steps Performed
+
+Step 1: Check UFW Status
+Command:
+sudo ufw status
+The firewall was inactive.
+
+Step 2: Enable the Firewall
+Command:
+sudo ufw enable
+This activated the firewall and enabled protection.
+
+Step 3: Check Existing Rules
+Command:
+sudo ufw status numbered
+No rules were present at this point.
+
+Step 4: Block Port 23 (Telnet)
+Command:
+sudo ufw deny 23
+This added a firewall rule to block Telnet traffic on port 23.
+
+Step 5: Confirm the Rule
+Command:
+sudo ufw status numbered
+The deny rule for port 23 appeared in the list.
+
+Step 6: Test the Rule
+Command:
+telnet 127.0.0.1 23
+Result:
+telnet: Unable to connect to remote host: Connection refused
+This confirmed that the firewall successfully blocked port 23.
+
+Step 7: Remove the Rule
+Command:
+sudo ufw status numbered
+Identify the rule number.
+
+Then:
+sudo ufw delete <rule_number>
+The rule was removed successfully.
+
+4. Conclusion
+This task helped me understand how UFW manages firewall rules in Linux. I learned how to enable the firewall, add a deny rule, test it, and delete it when no longer needed. The connection refusal message confirmed that the firewall was working as expected.
